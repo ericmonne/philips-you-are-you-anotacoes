@@ -1,0 +1,32 @@
+SERVIÇOS
+um serviço Angular reutilziado é projetado para encapsular a lógica de negócios e os dados com diferentes componentes do Angular 
+classe que tem um propósito bem definido para fazer algo 
+pode-se criar uma classe de serviço para dados ou lógica que não está associada a nenhuma visualização específica para compartilhar entre os componentes
+facilita a manutenção e a reutilização do código com a lógica de negócios 
+são lógicas e mecanismos que agem fora do componente e são injetados nele
+
+
+Angular é baseado em:
+Template - cuida do HTML 
+Component - cuida da lógica 
+
+INJEÇÃO DE DEPENDÊNCIA 
+usada para fornecer aos componentes os serviços que eles podem usar 
+exige o decorator @Injectable(), que indica que um componente ou outra classe (outro serviço, pipe ou NgModule) possui uma dependência
+fornece os metadados que permitem ao angular injetá-los em um componente como uma dependência 
+providedIn: 'root' -> informa ao angular para registrar o serviço no nível raiz do aplicativo, tornando-o disponível para injeção de dependência em qualquer lugar do aplicativo
+-> porém, em app.module, dentro de provider, tem que informar quem está fornecendo esse serviço 
+
+evitar tipar coisas como "any", pq ele deixa passar tudo, aceita qualquer tipo
+
+GERAL 
+criar serviço via angular CLI - ng generate service 
+@Injectable - decorator que marca uma classe como disponível para ser fornecida e injetada como uma dependência
+injeção de dependência: um padrão de design no qual uma classe solicita dependências de fontes externas em vez de criá-las 
+providers: declaração do módulo que informa aos componentes que o serviço está disponível para uso 
+integração com APIs: funcionalidade geralmente atribuída nos serviços 
+@Injectable - decorator utilizado para indicar que o serviço pode ser provido para outro módulo ou componente
+@Injectable - usado para indicar que um componente ou outra classe (como outro serviço, um pipe ou um NgModule) possui uma dependência que pode ser injetada em outro componente
+serviços: unidades centrais para algumas funções comuns em todo o aplicativo e possui @Injectable quando precisa ser usado por um componente
+injeção de dependência deve ser feita no método construtor da classe. Constructor()
+propriedade providedIn: define como e quem pode injetar um serviço como dependência, normalmente o root diz que qualquer componente pode recebê-lo 

@@ -1,0 +1,65 @@
+COMPONENTES 
+são blocos que sozinhos têm um sentido
+podem ser únicos ou um conjunto de vários outros COMPONENTES
+
+ganhos da componentização:
+-reutilização de trechos de código
+-isolamento de contexto 
+-legibilidade do código 
+-redução de código 
+-padronização do projeto 
+
+COMPONENTES NO ANGULAR
+1)METADATA 
+são definições através das quais informamos ao Angular que nossa classe é um Component, por meio de decorators - @Component
+isso oferece acesso a métodos específicos
+
+2)CLASSE 
+possui propriedades e métodos 
+
+ESTRUTURA 
+
+Import 
+Metadata 
+Component Class 
+
+Import: 
+import { Component, OnInit } from '@angular/core';
+
+Metadata:
+@Component({
+    selector: 'app-greet',
+    templateUrl: './greet.component.html',
+    styleUrls: ['./greet.component.css']
+})
+
+Component Class: 
+export class GreetComponent implements OnInit {
+    
+    constructor(){ }
+
+    ngOnInit(): void {        
+    }
+
+}
+
+
+ng add @angular/material 
+- comando para instalar o angular material 
+
+keyup - acessa o mapeamento das teclas 
+keyup.enter - reconhece o enter do teclado 
+
+
+GERAL 
+addTodo e removeTodo
+Angular Material Design: biblioteca de componentes Angular baseada no Material Design do Google
+função do app-routing.module.ts: módulo responsável pelas rotas do Angular 
+2 formas de armazenar informações: local storage e session storage 
+sobre classe: assim como em qualquer linguagem de programação que utiliza o paradigma de orientação a objetos, possui suas propriedades e métodos
+to do list: lista de tarefas a serem realizadas 
+componentes: benefícios incluem: reutilização de trechos de códigos, isolamento de contexto, legibilidade de código, redução de código e padronização do projeto 
+função do app.module.ts: onde importamos todos os módulos que serão utilizados 
+metadados: definições onde informamos ao Angular que a nossa classe será um Component, por meio de decorators, nesse caso, @Component
+componentes: blocos que sozinhos têm uma responsabilidade bem definida, eles podem ser únicos ou um conjunto de vários outros componentes 
+ 

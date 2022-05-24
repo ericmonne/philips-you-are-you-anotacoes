@@ -1,0 +1,104 @@
+PROBLEMAS DO SPRING 
+configurações de beans em arquivos xml 
+dispatcher servlet e view resolver em web.xml
+setup manual de banco de dados 
+muito tempo gasto em configuração 
+perda de foco em valor 
+
+SPRING BOOT 
+criado pela Spring Source em 2012 pra facilitar a configuração do Spring 
+objetivo: facilitar o setup de projetos Spring 
+sem necessidade de criar arquivos de configuração
+foco em produtividade
+produtividade: setup simplificado de projeto 
+starters: dependências auto configuráveis pelo Spring Boot 
+configuração: arquivo externo para configuração -> banco de dados, segurança etc 
+
+AUTO CONFIGURATION 
+facilita e agiliza a configuração, que não precisa mais ser manual 
+unifica múltiplos arquivos xml 
+identificação e configuração automática da dependência
+spring boot detecta as dependências e configura pro desenvolvedor
+projeto simplificado -> pronto para foco no valor
+Starters:
+dependências simplificadas e autoconfiguráveis 
+
+FATJAR/UBERJAR
+artefato do projeto pronto para execução 
+container web embutido na geração e execução (Tomcat)
+deploys embarcado com outros containers são opcionais
+dependências principais do projeto embarcadas no arquivo 
+Skinny Jar: a aplicação (app)
+Thin Jar: Skinny Jar + dependências (app + app dependencies)
+Hollow Jar: Tomcat e outras dependências para a execução da aplicação (app runtime)
+Fat/Uber: engloba Skinny, Thin e Hollow (aplicação, dependências, configurações e servidor embarcado)
+execução direta através de um único java -jar (mvn package && java -jar target/spring-boot-example-0.1.0.jar)
+podemos também gerar o war (web archive) tradicional e fazer o deploy em servidor externo 
+|-> para isso, ir ao pom.xml, e trocar o packaging de jar para war
+
+jar tf: comando para listar o conteúdo do jar 
+
+Antes do Spring Boot: 
+-Spring tradicional -> war precisa de servidor de aplicação 
+-dependência de um container web ou servidor de aplicação 
+-alta complexidade para configurações 
+-atualizações frequentes, junto com versão do projeto
+-gerenciamento manual de configurações
+
+MÚLTIPLOS AMBIENTES 
+múltiplos ambientes para desenvolvimento, teste e produção 
+bancos de dados para cada ambiente 
+execução de testes unitários em ambiente local
+suíte de testes completas em ambiente de teste 
+simulação do ambiente real em staging 
+deploy simplificado em produção 
+
+PROFILES 
+lidar com a multiplicidade de ambientes 
+configurações próprias para cada ambiente 
+ambientes com sua configuração: dev, production, staging 
+
+CONFIGURAÇÃO COM PROPERTIES 
+application.properties
+mapear as diferenciações do tipos de ambientes 
+caso nenhum arquivo seja mapeado em application.properties padrão, o projeto falha, pois não se encontra nenhuma referência
+basic.value: true 
+basic.message: Dynamic Message 
+basic.number: 100
+
+CONFIGURAÇÕES COM YAML 
+troca no formato de configurações: formato .YML 
+os arquivos de configuração podem ter os dois formatos: properties ou yml 
+basic:
+    value: true 
+    message: Dynamic Message YAML 
+    number: 100
+
+USO DE COMMANDO LINE PARA CONFIGURAÇÃO  
+propriedades do arquivo de configuração na linha de comando 
+sobrescreve as propriedades definidas no arquivo de configurações padrão 
+valores passados como argumento na execução do projeto 
+ex:
+mvn spring-boot: run -Dserver.port=8085
+
+CONFIGURAÇÕES COM VARIÁVEIS DE AMBIENTES 
+Variáveis de ambiente podem ser injetadas através da anotação @Value({NOME_VARIAVEL}) no projeto 
+definição de valor default quando não há variável 
+ex:
+@Value("${ENV_DB_URL:NENHUMA}")
+private String dbEnviromentVariable;
+
+linux e mac: export comum de variável
+windows: padrão de variável de ambiente 
+
+GERAL 
+FALSA: Spring boot gera automaticamente um arquivo war como executável 
+diretório padrão de application.properties - src/main/resources
+arquivo gerado após o build do projeto Spring Boot que engloba todas as dependências do projeto e está pronto para a execução - fat/uber jar 
+Spring Boot resolve - produtividade: disponibiliza, desde o começo, um projeto pronto para desenvolvimento e execução. Nenhuma configuração extra de arquivos web, banco de dados e suporte a transações é requerido 
+ao subir um projeto Spring Boot, é possível ver no log como o Augo Configuration detecta um recurso auto configurável. Para habilitar esse recurso de visualização do log - deve-se alterar a verbosidade nos pacotes do Spring para DEBUG ou TRACE. Além disso, podemos também incluir a propriedade "debug" igual a "true" no arquivo application.properties ou application.yml
+formas de atribuir valor de propriedades: command line, pom.xml, variáveis de ambiente, application.yml, application.properties
+conjunto de anotações que define confições para injeção de dependências em uma clase por meio do conceito de auto configuration: classes com a anotação @Conditional e nível de classe, seguida das anotações dos conjuntos de @Conditional (@ConditionalOnClass, @ConditionalonMissingBean, @ConditionalOnProperty)
+finalidade da anotação @ConfigurationProperties: mapear propriedades que têm chaves em comum com um arquivo de configuração java 
+spring.datasource.url=${DB_URL}
+spring.profiles.active=dev 

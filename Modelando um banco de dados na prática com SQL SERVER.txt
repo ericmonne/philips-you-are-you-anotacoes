@@ -1,0 +1,27 @@
+Em um modelo de relacionamento de tabelas, a tabela onde está a multiplicidade é que recebe a chave da outra tabela 
+ex: 
+um planeta tem muitos habitantes
+então a chave fica em habitantes
+
+Porém, se ambos os lados tiverem a multiplicidade, será necessária uma tabela intermediária
+ex:
+um piloto pode pilotar diversas naves 
+uma nave pode ser pilotada por diversos pilotos
+logo, cria-se uma tabela intermediária piloto-nave, que carrega o idPiloto e idNave 
+
+Boas Práticas:
+nomes no plural 
+nomes objetivos, práticos e claros
+
+GERAL 
+where - filtrar o conteúdo selecionado de uma API 
+delete [tabela.*] from tabela where critério
+chave primária - não pode ser duplicada
+objetivo de obter um diagrama de banco de dados: identificar mais facilmente como funciona o sistema, assim como a tabela principal (core) do sistema 
+INCORRETO: banco de dados são voláteis
+comando para consulta da base da API: select * from tabela 
+boas práticas: criação de tabelas no plural, nomes claros e objetivos 
+um banco de dados relacional pressupõe: que as tabelas se relacionam para gerar o controle dos dados 
+chaves estrangeiras: é uma referência em uma tabela a uma chave primária de outra tabela 
+bit: representa um valor booleano 
+

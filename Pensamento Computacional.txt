@@ -1,0 +1,190 @@
+PENSAMENTO COMPUTACIONAL
+processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador 
+habilidade geral de formulação e resolução de problemas
+tipo de pensamento sistemático e eficiente
+deve ser aplicado de forma que seres humanos e máquinas possam entender
+não é disciplina acadêmica 
+é habilidade generalista
+pode ser usado na matemática, escrita, leitura
+
+Baseado em 4 pilares:
+1- Decomposição
+dividir um problema complexo em subproblemas
+2- Reconhecimento de Padrões 
+identificar padrões ou tendências
+dentro de um mesmo problema ou em problemas distintos
+identificar similaridades e diferenças entre os problemas
+3- Abstração
+extrapolar o conceito do problema para uma forma generalista
+4- Design de algoritmos
+automatizar
+definir passo a passo a solução do problema
+
+Overview:
+processo contínuo de: 
+-definir uma solução
+-testar a solução 
+-aperfeiçoar a solução encontrada
+
+abstração para resolução de problemas 
+automatização da expressão da solução 
+análise com execução da solução e avaliação(refinamento)
+
+
+Competências
+-pensamento sistemático 
+-colaboração dentro da equipe
+-criatividade e design 
+-facilitador
+
+HABILIDADES COMPLEMENTARES 
+variação dos pilares 
+
+-Raciocínio Lógico
+tipo de pensamento estruturado que permite encontrar a conclusão ou determinar a resolução de um determinado problema
+habilidade de treinamento
+
+Classificação:
+Inferência
+1.Sintética
+a. Indução
+fenômenos observados -> indução -> leis e teorias
+ciências experimentais
+b. Abdução
+conclusão -> premissa 
+diagnósticos
+processo investigativo
+ex:
+a grama está molhada, logo deve ter chovido
+2. Analítica
+a. Dedução
+leis e teorias -> dedução -> previsões e explicações
+ciências exatas
+
+
+-Refinamento / Aperfeiçoamento / Melhoramento / Aprimoramento
+a partir de uma solução, determinar pontos de melhora e refinamento 
+encontrar solução eficiente - melhor uso de recursos
+otimizar processos  - melhor uso de recursos 
+simplificar linhas de códigos - melhorar códigos e algoritmos 
+funções bem definidas - melhorar códigos e algoritmos 
+processo contínuo
+presente em todas as etapas do pensamento computacional 
+vantagens:
+a.maior compreensão
+b.mais eficiência
+c.economia de tempo
+d.economia de armazenamento e poder computacional 
+
+PILARES 
+1.DECOMPOSIÇÃO 
+se você não pode resolver um problema, então existe um problema mais fácil que você pode resolver: encontre-o 
+primeiro passo da resolução de problemas dentro do pensamento computacional 
+dado um problema complexo, devemos quebrá-lo em problemas menores, mais fáceis e gerenciáveis 
+desenvolver a decomposição autonomamente
+há maneiras distintas de decompor o mesmo problema 
+-Etapas de Estratégia
+a.Análise
+processo de quebrar e determinar partes menores e gerenciáveis 
+decompor em elementos constituintes 
+realizar exame detalhado
+b. Síntese
+combinar os elementos recompondo o problema original 
+reunir elementos distintos em um único elemento de maneira coerente
+processo de reconstrução
+-Ordem de execução de tarefas menores
+a.Sequencial
+dependência entre tarefas
+execução em fila 
+b.Paralela
+tarefas executadas concomitantemente
+maior eficiência, menor tempo 
+-Como decompor:
+entender o problema
+identificar características e dependências entre os componentes 
+deixar o problema principal em segundo plano
+identificar ou coletar dados
+agregar dados 
+fornecer a funcionalidade/resultado do problema 
+
+2.RECONHECIMENTO DE PADRÕES 
+modelo base 
+estrutura invariante
+repetição
+similaridades e diferenças 
+generalizar com objetivo de obter resolução para problemas diferentes 
+classificação de objetos (dependem do domínio e do tipo de objeto)
+-Como o computador reconhece padrões?
+a. representação de atributos 
+b. aprendizado - conceito associado ao objeto 
+c. armazenar dados 
+d. regras de decisão 
+aplicações:
+-classificação de dados
+-reconhecimento de imagem 
+-reconhecimento de fala 
+-análise de cenas 
+-classificação de documentos
+-ciência de dados 
+-machine learning 
+-redes neurais 
+-inteligência artificial
+
+3.ABSTRAÇÃO 
+observar um ou mais elementos, avaliando características e propriedades em separado 
+processo intelectual de isolamento de um objeto da realidade 
+generalização 
+tornar mais geral, mais amplo 
+operação intelectual que consiste em reunir numa classe geral um conjunto de seres ou fenômenos similares 
+generalizar para classificar e obter uma representação do objeto 
+
+4.ALGORITMOS 
+o computador recebe, manipula e armazena dados através de instruções em programas 
+processo de resolução de problemas passo a passo utilizando instruções 
+o que precisa ser feito? 
+qual a ordem de execução?
+precisam ser entendidos por humanos e máquinas 
+Etapas de Desenvolvimento de um Programa:
+a. Análise:
+-estudo e definição dos dados de entrada e de saída 
+b. Algoritmo:
+-descreve o problema por meio de ferramentas narrativas, fluxograma ou pseudocódigo
+c. Codificação:
+-o algoritmo é codificado de acordo com a linguagem de programação escolhida 
+Algoritmo é sequência de passos com objetivo definido, execução de tarefas específicas
+é conjunto de operações que resultam em uma sucessão finita de ações 
+Como construir um algoritmo? 
+a. compreensão do problema
+b. definição dos dados de entrada 
+c. definir processamento 
+d. definir dados de saída 
+e. utilizar um método de construção 
+f. teste e diagnóstico 
+Métodos para construir algoritmos:
+a. Narrativa:
+-método mais simples, intuitivo e fácil 
+-utilizado através da linguagem nativa 
+-diversas interpretações possíveis 
+-sem conceitos novos
+b. Fluxograma:
+-utilização de símbolos pré-definidos 
+-simples entendimento 
+-conhecimento prévio da estrutura e símbolos
+c. Pseudocódigo:
+-regras definidas
+-passos a serem seguidos 
+-portugol 
+
+Não é necessário utilizar todos os pilares para resolver algum problema dentro do pensamento computacional 
+
+GERAL 
+executar tarefas em paralelo otimiza recursos como tempo e armazenamento 
+INCORRETO: durante o processo de abstração, particularizam o problema, de forma que ele seja aplicável a apenas um caso específico 
+o pensamento computacional é uma habilidade generalista
+a ordem de execução das tarefas dentro da etapa de decomposição pode ocorrer: em sequencial ou paralelo 
+fatoração NÃO é um pilar do pensamento computacional
+o processo de refinamento é necessário para otimizar recursos e facilitar entendimento 
+o processo de busca por uma solução para um problema complexo consiste em utilizar um ou mais pilares do pensamento computacional, descrever a solução, testar e aperfeiçoar 
+Narrativa: método de construção de algoritmo que utiliza a linguagem natural para expressar as instruções passo a passo
+Análise: processo de quebrar e determinar partes menores de um problema 
+as instruções são utilizadas pelo computador para determinar a solução de um problema

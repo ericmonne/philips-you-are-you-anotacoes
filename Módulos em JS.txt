@@ -1,0 +1,86 @@
+MÓDULOS 
+arquivos JS que têm a capacidade de exportar e importar informações de outros arquivos do mesmo tipo
+counter e display importam as informações
+main importa as informações 
+Vantagens:
+-organização do código 
+-compartilhamento de variáveis em escopos diferentes 
+-explicita as dependências dos arquivos 
+
+EXPORTAR
+2 formas pra exportar:
+1) named exports 
+usada para exportar mais de uma coisa do arquivo 
+elementos são exportados individualmente 
+ex1:
+export function mostraIdade(pessoa) {
+    return 'A idade de $(pessoa.nome) é $(pessoa.idade);
+}
+ex2:
+function mostraIdade(pessoa) {
+    return 'A idade de $(pessoa.nome) é $(pessoa.idade);
+}
+export{
+    mostraIdade;
+}
+
+2) default exports 
+só pode haver um por arquivo 
+será o retorno padrão do arquivo
+ex:
+function mostraIdade(pessoa) {
+    return 'A idade de $(pessoa.nome) é $(pessoa.idade);
+}
+function mostraCidade(pessoa) {
+    return 'A cidade de $(pessoa.nome) é $(pessoa.cidade);
+}
+function mostraHobby(pessoa) {
+    return 'O hobby de $(pessoa.nome) é $(pessoa.hobby);
+}
+export {
+    mostraIdade,
+    mostraCidade,
+}
+export default mostraHobby;
+
+IMPORTAR 
+1) named exports 
+ex:
+import {funcao, variavel, classe} from './arquivo.js'
+2) default exports 
+ex: 
+import valorDefault from './arquivo.js'
+3) trocando nome de imports 
+ex:
+import {arquivo as Apelido} from './arquivo.js';
+Apelido.metodo();
+4) importar todos os dados de um arquivo 
+ex: import * as INFOS from './arquivo.js';
+INFOS.metodoA();
+console.log(INFOS.variavel);
+
+VINCULANDO AO HTML 
+para fazer testes localmente de um arquivo, será necessário rodar um servidor, como com a extensão Live Server 
+ex:
+<script type="module" src="./main.js"></script>
+
+OUTROS 
+módulos sempre estão em strict mode 
+podem ser utilizadas as extensões .js e .mjs 
+mjs é encorajada por facilitar a identificação do arquivo como um módulo 
+para testes lcoais, é necessário utilizar servidor 
+ao importar, sempre deve ser lembrada a extensão 
+ao importar, sempre usar "./" como ponto de partida 
+
+GERAL 
+I- módulos estão sempre em strict mode 
+II - módulos possuem restrições em relação a arquivos .js comuns 
+utilizar sempre ./ para iniciar o caminho do arquivo, seguido por sua extensão 
+utiliza um default export 
+para programar com módulos: .js e .mjs 
+importação correta de um módulo numa página HTML: <script type="module" src="main.mjs"></script>
+sintaxe correta para importar todo o conteúdo de um arquivo: import * as Apelido from './arquivo.js'
+módulos estão sempre em strict mode
+módulos são arquivos JavaScript que podem compartilhar informações com outros arquivos 
+utiliza um apelido 
+todas as afirmações 

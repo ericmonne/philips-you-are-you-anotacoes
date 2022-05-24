@@ -1,0 +1,41 @@
+TYPESCRIPT 
+funciona como se fosse uma extensão do JS 
+adiciona checagem de tipos 
+facilita e acelera o desenvolvimento
+permite tipar variáveis e parâmetros de funções 
+torna a tipagem mais estática e forte? 
+facilita a criação de testes unitários 
+
+
+Types 
+define uma estrutura de dados para os parâmetros de classes e funções
+permite a validação
+usado para juntar diferentes interfaces, definir variáveis como interfaces
+
+Interfaces
+contratos pra implementar as classes
+definem contratos de estrutura de dados  
+
+Tag Input 
+
+Generic Types
+por padrão, quando não se sabe qual será o tipo do elemento, utiliza-se um T
+
+? -> transforma o dado em opcional
+-? remove os valores opcionais 
+
+Omit
+esconde um item de uma interface 
+
+GERAL 
+Modificadores de acesso do TypeScript: private, public e protected
+utilização de Omit: em um padrão de codificação típico em TypeScript, é criado um novo tipo que omite propriedades específicas de outro tipo. Antes usada a combinação dos helpers Pick e Exclude 
+tag input pertence ao HTML 
+Generic Types: representam uma maneira de criar parâmetros para classes e definir tipos que podem ser substituídos em vários lugares do programa, eliminando o uso da classe Object para definirmos tipos variáveis 
+TypeScript: é uma extensão do JavaScript, possuindo features não nativas do JavaScript, como checagem de tipos, que facilitam e aceleram o desenvolvimento de sistemas
+interfaces: contratos para implementar as classes ou estruturas. Uma classe que implementa uma interface é obrigada a implementar todos os seus membros 
+diferença na utilização de const ou readonly: o const é utilizado para variáveis e não pode ser reatribuído, já o readonly é utilizado para propriedades (membros de classes), que podem ser reatribuídas desde que dentro do construtor
+types: são utilizados  para definir estruturas de dados em classes e funções, além de apoiar suas respectivas validações 
+parâmetro de função opcional: cargo?: string 
+tipos condicionais em TypeScript: permite que um tipo seja definido dinamicamente, com base em uma condição pré-fornecida, seguindo um formato padrão 
+

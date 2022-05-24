@@ -1,0 +1,235 @@
+SPRING FRAMEWORK 
+framework open source desenvolvido para a plataforma Java
+baseado nos padrões de projetos inversão de controle e injeção de dependência
+sua estrutura é composta por módulos para reduzir a complexidade no desenvolvimento de aplicações simples ou corporativas 
+existem módulos específicos para cada finalidade da aplicação (banco de dados, segurança, etc)
+reação à burocracia e verbosidade do JAVA EE 
+após Java EE 5, o debate entre Spring e Java EE volta a esquentar, pois ele começa a ser facilitado 
+
+INVERSÃO DE CONTROLE / INVERSION OF CONTROL / IOC 
+trata-se do redirecionamento do fluxo de execução de um código
+retirando parcialmente o controle sobre ele e delegando-o para um container 
+o principal propósito é minimizar o acoplamento do código 
+o container gerencia performance, uso de memória, instanciação etc 
+assim, ao necessitar usar um objeto, apenas requisita-se-o ao container 
+
+INJEÇÃO DE DEPENDÊNCIAS 
+padrão de desenvolvimento com a finalidade de manter o baixo nível de acoplamento entre módulos de um sistema 
+aplicação é inicializada e carrega um container, que é responsável pelos objetos reais que são injetados nas interfaces 
+
+BEANS
+objeto que é instanciado (criado), montado e gerenciado por um container através do princípio da inversão de controle 
+container define quantos objetos serão criados para a aplicação 
+
+ESCOPOS
+5 tipos, categorizados para contextos standalone ou para http 
+1)Singleton 
+o container do Spring IoC define apenas uma instância do objeto 
+2)Prototype
+será criado um novo objeto a cada solicitação ao container 
+útil para não inferir mudança de estrutura desses objetos 
+3)HTTP-Request
+um bean será criado para cada requisição HTTP 
+os objetos existirão enquanto a requisição estiver em execução
+4)HTTP-SESSION 
+um bean será criado para cada sessão de usuário 
+precisamos acessar a mesma solicitação duas vezes para testar os escopos específicos da web 
+5)HTTP-GLOBAL - Application Scope 
+cria um bean para o ciclo de vida do contexto da aplicação 
+objetos compartilhados por toda a aplicação
+
+AUTOWIRED 
+anotação/indicação sobre onde deverá ocorrer uma injeção automática de dependência 
+
+-byName: 
+é buscado um método set que corresponde ao nome do Bean 
+-byType:
+é considerado o tipo da classe para inclusão do Bean 
+-byConstructor:
+usamos o construtor para incluir a dependência
+
+SPRINGBOOT
+o spring framework é baseado no padrão de injeção de dependências 
+já o springboot foca na configuração automática e nos padrões de estruturação de projetos 
+disposição de vários recursos baseados no spring framework 
+sua proposta é aumentar a produtividade, oferecendo configurações pré-definidas
+
+Desafios de Antes do Springboot
+-dependência individual
+-verbosidade
+-incompatibilidade de versões 
+-complexidade de gestão
+-configurações complexas e repetitivas 
+
+STARTERS 
+descritores de dependências
+benefícios:
+-coesão 
+-versões compatíveis 
+-otimização do tempo
+-configuração simples 
+-foco no negócio 
+
+Starters mais comuns:
+- Spring-boot-starter-*
+    data-jpa: integração com banco de dados via JPA-Hibernate
+    data-mongodb: interação com banco de dados MongoDB 
+    web: inclusão do container Tomcat para aplicações REST 
+    web-services: webservices baseados na arquitetura SOAP 
+    batch: implementação de JOBs de processos 
+    test: disponibilização de recursos para testes unitários como JUnit 
+    openfeign: Client HTTP baseado em interfaces 
+    actuator: gerenciamento de monitoramento da aplicação 
+
+
+Eliminar a instanciação manual no Spring Boot (ex: Calculadora calculadora = new Calculadora())
+isso será feito através da criação de um container e da anotação autowired 
+
+@COMPONENT
+componentes que serão escaneados na aplicação
+usado quando se tem acesso ao código fonte 
+permite que a classe seja injetável em qualquer lugar do ecossistema springboot 
+
+@BEAN 
+permite que se injete um componente 
+evitar criar beans na classe principal 
+usado quando não se tem acesso ao código fonte 
+
+SINGLETON 
+um único objeto sendo utilizado a cada necessidade da aplicação 
+
+PROTOTYPE 
+a cada necessidade/dependência dentro da aplicação, haverá uma instância correspondente a essa necessidade
+
+@VALUE
+referencia o application.properties 
+ex: 
+ classe principal:
+    @Value("${nome}")
+    private String nome;
+ application.properties:
+    nome="meu nome"
+
+para inserir valores-padrão, caso não seja encontrado nada em application.properties
+@Value("${nome:Padrao da Silva}")
+
+@Configuration
+@ConfigurationProperties (prefix = "remetente")
+um bean de configuração cujos valores vêm todos do application.properties
+
+ORM - OBJECT-RELATIONAL MAPPING
+mapeamento objeto-relacional
+recurso para aproximar o paradigma da orientação a objetos ao contexto de banco de dados relacional 
+seu uso é realizado através do mapeamento de objeto para uma tabela por uma biblioteca ou framework 
+camada de mapeamento e especificação ORM, camada de implementação, camada de transformação de objeto para dados em banco de dados
+
+JPA - JAVA PERSISTENCE API 
+especificação baseada em interfaces 
+através de um framework, realiza operações de persistência de objetos em Java 
+provê mecanismos de interação com o banco de dados 
+Implemntações:
+-Hibernate
+predominante no sistema 
+implementação oficial JPA do spring boot 
+-Eclipse Link
+framework oferecido pelo Eclipse 
+-Top Link
+framework oferecido pela Oracle 
+-Open JPA 
+
+MAPEAMENTO JPA 
+Aspectos das anotações de mapeamento do JPA:
+-identificação (da classe)
+-definição (através dos tributos, associadas ao DDL, à construção das tabelas no banco ex: campo obrigatorio, limite de caracteres, se é chave)
+-relacionamento (entre as entidades, representação do relacionamento entre as tabelas)
+-herança (POO consegue prover mecanismos de herança dentro da estrutura do banco de dados )
+-persistência (anotações que realizam persistência)
+
+ex:
+@Entity (pacote: javax.persistence)
+@Table(name="tb_usuario")
+public class Usuario{
+
+    @Id 
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id_usuario")
+    private Long id;
+
+    private String nome; //JPA subentende que esse é o nome no banco de dados
+
+    @Column(name="login_usuario")
+    private String login;
+
+SPRING DATA JPA 
+adiciona uma camada sobre o JPA 
+melhorar a persistência adicionando uma nova camada 
+usa todos os recursos definidos pela especificação JPA 
+mecanismo de comunicação com o banco de dados 
+através de interfaces para prover recursos comuns já existentes em uma aplicação tradicional (CRUDs)
+
+Interfaces: 
+CrudRepository 
+JPARepository 
+PagingAndSortingRepository 
+
+Anotações:
+@Query
+@Param 
+
+COMMAND LINE RUNNER (CommandLineRunner)
+interface que fornece uma instrução similar ao método main que executa automaticamente ao inicializar o container 
+
+DBeaver
+ferramenta para banco de dados 
+
+APPLICATION.PROPERTIES 
+centralizador de configurações para o projeto provido pelo Spring Boot 
+
+REPOSITORY PATTERN 
+padrão de projeto similar ao DAO (Data Access Object)
+no sentido de que seu objetivo é abstrair o acesso a dados de forma genérica a partir do seu modelo 
+
+SPRING DATA JPA 
+facilita a implementação do padrão Repository através de Aspect Oriented Programming (AOP)
+através de uma interface, o Spring gera dinamicamente a implementação dos métodos de acesso a dados 
+estender a interface JpaRepository é opcional, mas a vantagem é que ela já vem com vários métodos genéricos de CRUD, 
+de forma que não será necessário redefini-los 
+
+Métodos: 
+save - insere e atualiza 
+findById - retorna o objeto pelo ID 
+existById - verifica o objeto pelo ID (boolean)
+findAll - retorna toda a lista 
+delete 
+count - retorna a quantidade de registros de uma tabela mapeada no banco de dados 
+
+Consultas Customizadas:
+1)Query Method 
+o SD-JPA se encarrega de interpretar a assinatura de um método para montar a JPQL correspondente 
+possui palavras-chave para nomes de métodos que facilitam o uso do banco de dados 
+para isso, é útil ver a documentação
+
+2)Query Override
+para pesquisas avançadas
+reescreve a consulta de forma manual através da anotação @Query
+
+JPQL 
+linguagem SQL usada no contexto de entidades 
+
+GERAL 
+@Scope - anotação utilizada para marcar o tempo de vida de um objeto gerenciado pelo container 
+ORM - recurso para aproximar o POO ao contexto de Bancos de Dados Relacionais 
+JPA - é uma especificação baseada em interfaces que, através de um framework, realiza operações de persistência de objetos em Java 
+Hibernate, Eclipse Link, Top Link, Open JPA - Implemntações JPA 
+Spring Data JPA - parte da família do Spring Data, torna mais fácil implementar repositórios baseados em JPA 
+@Value - anotação para atribuir valor padrão a uma propriedade de classe 
+@Query - anotação para executar consultas SQL e SQL nativas 
+.properties - extensão de arquivo de configuração padrão do aplicativo em um projeto Spring Boot
+starter para importar dependência do SGBD PostgreSQL - 
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+    </dependency>
+Singleton, Prototype, Http-Request, Http-Session, Application Scope
+Starters - dependências que agrupam outras dependências com um propósito em comum 
+@ConfigurationProperties(prefix) - uma maneira de incluir uma configuração externalizada e de fácil acesso a propriedades definidas em arquivos de propriedades 

@@ -1,0 +1,122 @@
+ANGULAR 
+utiliza o padrão Single Page Application(SPA)
+toda a aplicação fica envelopada em uma única página 
+porta padrão: 4200
+fortalece o HTML (react fortalece JavaScript)
+
+ANGULAR CLI 
+agiliza o gerenciamento da aplicação no Angular 
+utilizado para:
+-criar o projeto, 
+-configurar componentes e rotas
+-criar guards(?)
+client/gerenciador útil para a produtividade na cosntrução da aplicação
+
+PACKAGE.JSON
+contém as dependências da aplicação
+dependências aparecem automaticamente após instaladas
+
+ANGULAR.JSON
+contém as informações globais da aplicação 
+configura propriedades globais
+define o arquivo de inicialização da aplicação 
+assets: parte estática da aplicação (ex: imagens)
+styles: estilos propagados em todos os componentes
+scripts: propagados para todos os componentes
+index: página da aplicação 
+main: faz o bootstrap da aplicação, inicializa (paralelo ao método main de java)
+
+NODE_MODULES
+pasta que contém as dependências da aplicação
+
+SRC - MAIN.TS 
+chamado no angular.json 
+dentro dele há propriedades importantes para inicializar a aplicação
+espera receber um módulo raiz da aplicação para fazer o processo de bootstrap/inicialização da aplicação
+Componente pai: responsável por envelopar todos os componentes criados
+
+A aplicação toda possui um único HTML raiz
+
+MODULOS 
+Angular é modular, ele tem um módulo raiz que englobe todos os componentes, mesmo que não seja criado pelo desenvolvedor
+Angular tem módulo por padrão
+é uma bolsa, um limitador de contexto
+todos os seus conteúdos correspondem ao contexto 
+componentes adicionados dentro do módulo é que dão cor, aparência, vida ao módulo 
+diretiva é o elemento html que faz um bind com o componente 
+selector gera uma tag que pode ser usada em qualquer lugar 
+
+One-Way Data Bind 
+única via 
+apenas exibir o valor da propriedade
+[]
+
+Two-Way Data Bind
+junta as duas vias: lê e altera o valor da propriedade do componente
+alteração é propagada em todas as referências da propriedade
+[()]
+
+Toda vez que se criar um componente, ele tem que ser cadastrado no módulo que corresponde a ele 
+
+
+img [src]="course.imageUrl" -> o colchete mescla valor e atributo 
+
+@Input:
+essa notação faz com que a variável esteja elegível para receber alguma ação de um componente externo 
+
+styleUrls recebe array como padrão porque pode receber mais de uma folha de estilo 
+
+INJEÇÃO DE DEPENDÊNCIA 
+@Injectable
+
+CLASSE DE SERVIÇO 
+métodos simples que façam alguma regra, realizem ou chamem outras operações e/ou variáveis estáticas(constantes?) cujos valores não serão alterados
+
+Variável com underline na frente: avisar aos devs que a variável fique somente no compnente 
+
+PIPE 
+Angular permite usar mais de um pipe na propriedade
+é expresso pelo símbolo |
+@Pipe - notação para mostrar ao Angular que a classe tá elegível para o Pipe 
+
+Pipe de Data
+é nativo do Angular 
+
+ROTAS 
+router-outlet: faz o switch de rotas dos componentes
+componentes de rota não exigem selector  
+angular reconhece 2 rotas padrão:
+1)vazia, sem nada, na raiz da aplicação
+2)** - quando não encontra a rota, a URL 
+
+Validações Dinâmicas 
+para deixar o visual mais agradável ao usuário 
+
+CALLBACK FUNCTIONS 
+next: a requisição deu certo e retorna algo a ser trabalhado
+
+Requisição HTTP 
+exige o método subscribe
+
+Angular não permite que um módulo seja importado/declarado duas vezes
+
+PASTA SHARED 
+contém componentes de nível pequeno, genéricos, que permitem o tráfego de módulos segundo a necessidade
+importante que haja um módulo específico para cada componente da pasta shared 
+
+PASTA CORE 
+contém componentes pesados, que possuem uma regra de negócios maior, que são mais relacionados a outros componentes 
+ex: navbar 
+
+
+GERAL 
+RouterModule: habiltia a navegação de uma view para outra pelo usuário 
+A aplicação será iniciada, mas não será possível utilizá-la, pois não é possível ter dois componentes declarados em módulos diferentes
+routerLink: navegar entre views através de um link de rota 
+Componente: define a área de interface do usuário(UI), que permite a reutilização desse conjunto de funcionalidades
+Decorator: define uma classe como um componente, module, pipe, service e seus metadados, que determinam como a classe deverá ser processada 
+propriedades básicas de um componente: classe de componente, HTML Template e um estilo específico
+módulos: são contêineres, ou limitadores de contexto, para um bloco de código coeso de uma área de domínio da aplicação 
+pipes: responsável por receber, transformar e exibir uma informação para os usuários
+injeção de dependência: são objetos de serviço responsáveis por executar sua função, cuja instância é compartilhada por quem os chama 
+propriedade declarations: declarar os componentes/pipes internos do módulo em questão 

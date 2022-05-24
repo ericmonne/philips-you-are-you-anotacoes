@@ -1,0 +1,179 @@
+SPRING
+organizado em quase 20 módulos, divididos em grupos:
+DATA ACCESS/INTEGRATION
+contém os módulos:
+-JDBC
+-OXM
+-ORM
+-JMS
+-Transactions
+
+WEB (MVC/Remoting)
+contém os módulos:
+-Web
+-Servlet
+-Portlet
+-Struts
+
+AOP
+
+ASPECTS
+
+INSTRUMENTATION
+
+TEST
+
+CORE CONTAINER
+contém os módulos:
+-beans
+-core 
+-context
+-expression language
+
+---***---
+CORE E BEANS (módulos)
+fornecem a estrutura principal, a parte fundamental do Spring, sem a qual não é possível uma configuração do spring 
+possuem os recursos:
+-IoC (inversão de controle)
+-Injeção de Dependências
+-BeanFactory - implementação sofisticada do padrão de design Factory, que fornece um jeito de criar o (?) de classes e objetos em tempo de execução, enquanto a aplicação roda
+
+CONTEXT (módulo)
+-Core e Beans (herda suas características)
+-Internacionalização (dá suporte a partir de mensagens, comunicação entre componentes, carregamento de arquivos e a criação de contextos especificos)
+-Application Context - ponto principal do Context extende a BeanFactory e a melhora
+- meio para acessar objetos de maneira semelhante a um registro JNDI
+
+
+EXPRESSION LANGUAGE 
+define através de xml ou anotações em tempo de execuçã, valores e comportamentos dos beans 
+
+---***---
+Spring Container recebe a configuração e as classes para fornecer um sistema configurado pronto para uso 
+Core Container lê as classes e configurações e as juntas no Spring Container 
+
+---***---
+INVERSÃO DE CONTROLE 
+princípio de design de programas de computadores em que a sequência (controle) de chamadas dos métodos é invertida em relação à programação tradicional, ou seja, ela não é determinada diretamente pelo programador 
+a chamada de métodos é determinada pelo spring, de acordo com as solicitações do usuário e as regras de negócio 
+
+APPLICATION CONTEXT 
+representa o container Spring IoC
+instancia, configura e monta todos os beans 
+O container pega as instruções sobre quais objetos instanciar, configurar e montar lendo os metadados de configuração. 
+
+Configuração pode ser representada em:
+-XML 
+exige um arquivo application-context.xml
+pra cada componente da minha aplicação que eu quero que o Spring monitore, eu precisava passar aqui o identificador dela e onde ta a classe q eu to monitorando
+
+-Código Java 
+fazer uma classe de configuração, passar as beans sendo criadas e falar o que o Spring fará quando precisar usar a service a repository
+
+-Anotações Java 
+método mais fácil e simples 
+ex:
+@Component 
+@Controller
+@Service 
+@Repository
+@Autowired
+
+SPRING BEANS 
+é qualquer objeto gerenciado pelo Spring IoC 
+quando o Spring passa a monitorar uma classe, ela se torna uma bean 
+
+STEREOTYPES 
+anotações Spring Bean 
+marcações que indicam ao spring o funcionamento desejado aos elementos 
+
+@Repository - Persistência
+-nível de classe, acima das classes 
+-representa a classe que possua qualquer interação com o banco de dados
+-estender de JpaRepository para facilitar a configuraçaõ como repository -> exige 2 informações: a classe em questão e o tipo de id da classe 
+
+@Service - Serviço
+-nível de classe 
+-usada pra qualquer classe responsável pelas regras de negócio 
+
+@Controller/@RestController - Apresentação
+-representa os controladores 
+-controla as chamadas de tela 
+-pega a lógica da service e traz pra tela 
+-RestController traz os dados em json pro frontend (quando frontend e backend são trabalhados separadamente)
+
+@Configuration - Configuração 
+-classe que traz as configurações do projeto 
+-qualquer coisa adicional do projeto, como segurança, e que não seja regra de negócio
+
+@Component 
+-anotação genérica
+-coisas simples 
+-ex: configuração com datas 
+-controller, service e repository derivam dela 
+
+ESCOPOS E CICLOS DE VIDA 
+
+6 Padrões de Escopo de beans (Bean Scopes)
+1- Singleton
+uma única instância pra qualquer objeto que for chamado no projeto 
+configura-se uma bean e sempre que ela for chamada, o spring trará a mesma instância 
+é o padrão do spring -> quando o padrão não é definido, é ele que o spring pressupõe
+
+2- Prototype - @Scope("prototype")
+oposto ao singleton 
+pra cada requisição nova, cria uma nova instância da bean, como um objeto novo
+
+3- Request - @RequestScope
+cria uma instância pra cada requisição http 
+destrói a instância ao fim da requisição 
+seu ciclo de vida é pra cada requisição http chamada 
+
+4- Session - @SessionScope
+mistura singleton e request 
+cria uma requisição única, mas pra cada sessão (reseta quando fecha o navegador, por exemplo)
+faz uma sessão nova pra cada usuário que estiver logado
+
+5- Application - @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+próximo ao singleton 
+uma instância pra aplicação, mesmo com conexão com outros sistemas 
+uma instância para todas essas aplicações juntas 
+(achei mais confuso, tenho que procurar mais sobre)
+
+6-WebSocket - @Scope(value = "websocket", proxyMode = ScopedProxyMode.TARGET_CLASS)
+parece escopo de sessão, mistura tbm singleton e request 
+funciona só para conexão via websocket (???)
+enquanto a página fizer requisições com websocket, haverá um singleton ali 
+se perder a conexão websocket, mata o bean e cria um novo quando for chamado novamente 
+
+
+INJEÇÃO DE DEPENDÊNCIAS 
+é uma forma de aplicar inversão de controle em uma classe que utiliza funcionalidades de outras classes 
+via notação @Autowired no spring 
+ex: homecontroller precisa usar método de outra classe, como a userservice 
+
+PROXIES SETTER 
+modo como o spring procura, injeta e seta as dependências 
+
+@Autowired
+3 formas de marcar:
+-propriedades - marca um atributo como injetável para o spring
+-construtores - passa no construtor o atributo que se quer injetar -> boa para teste de software (e receber o construtor de outra classe)
+-métodos - setter -> facilita para inserir regras de negócio adicionais (e receber o setter de outra classe)
+
+CDI - Injeção de Dependência e Contexto
+é a especificação Java que define a injeção de dependência e inversão de controle para aplicações JavaEE 
+adicionar dependência jboss servlet no pom.xml 
+recebe a base de injeção de dependência do java e permite usar também no spring - embora este já tenha também sua própria forma de injeção de dependência
+
+GERAL 
+CDI - é a especificação Java que define a injeção de dependência e inversão de controle no JavaEE 
+3 tipos de configuração do Application Context: XML, anotações java e código java 
+Core e Beans: módulos que fornecem as partes fundamentais para a estrutura do Spring
+Bean: qualquer objeto gerenciado pelo Spring IoC 
+War e Jar: modos de empacotamento de um projeto Spring
+inversão de controle: é um princípio em que a sequência de chamadas dos métodos é invertida em relação à programação tradicional
+@Component - anotação de estereótipo genérica no Spring
+pontos para injeção de dependência: propriedades, construtores e métodos
+injeção de dependência: uma forma de aplicar inversão de controle em uma classe que utiliza funcionalidades de outras classes
+Singleton: escopo padrão de um Bean

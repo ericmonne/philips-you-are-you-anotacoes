@@ -1,0 +1,117 @@
+O problema de usar apenas EXCEL para controlar os dados em uma empresa: limitação das possibilidades e atraso nas resoluções 
+
+SGBDs
+softwares que padronizam os bancos de dados 
+normalização de dados 
+após armazenar um dado através da interface, o usuário não sabe como o dado é interpretado, mas sim como acessá-lo e manipulá-lo 
+principal característica: lidar com padrões de dados armazenados 
+interface entre dados e sistemas, entre dados e pessoas
+possibilita restringir níveis de acesso através da tipificação dos usuários 
+excluir, inserir e selecionar dados 
+
+TIPOS DE BANCOS DE DADOS (SGBDs)
+
+1)RELACIONAIS
+-SQL Server
+-Oracle
+-MySQL 
+para sistemas que exigem confiabilidade dos dados muito grande
+ex: vendas não podem ser duplicadas, precisam ser 100% precisas; controle forte de estoque
+são altamente tipados 
+
+
+2)NoSQL // NÃO-RELACIONAIS
+-MongoDB 
+-Neo4j
+-Firebase 
+adequados para cenários que exigem melhor performance 
+armazenam grande quantidades de dados - Big Data 
+melhores para armazenar vídeos, imagens, geolocalização, links
+possuem ferramentas prontas para o consumo do banco de dados 
+
+REPRESENTAÇÃO BANCO RELACIONAL
+característica: atomicidade dos dados, garante que todos os dados estejam corretos ao inseri-los na tabela
+atomicidade -> confiabilidade
+colunas -> atributos
+linhas -> informações/dados 
+tipos -> indica o formato das informações que serão armazenadas 
+
+ex de tipo: bit
+bit aceita apenas 0 ou 1
+0 = false
+1 = true
+
+SSMS 
+SQL Server Management Studio 
+Tipos:
+-int 
+-bigint 
+-float
+-char(tamanho fixo) - completa o que falta no tamanho fixo com espaços vazios
+-varchar(até 4000) - salva apenas o que for passado
+busca no campo varchar é mais lento, pq reserva muitos bytes 
+
+inserir dados: insert into nomeTabela (campos, da, tabela) values (valores, de, entrada)
+                insert nomeTabela ...
+                insert nomeTabela values (valores, de, entrada)
+
+deletar um dado: delete from clientes where Codigo in(5, 2,3,4);
+
+getdate() = função do SQLServer que retorna a data e horário atuais 
+isnull(par1, par2) se o primeiro parâmetro for nulo, retorna a informação no segundo parâmetro (exemplo: getdate())
+
+Select-Case-Then
+select *, case when tipopessoa = 'j' then 'jurídica'
+              when tipopessoa = 'f' then 'física'
+              else 'pessoa indefinida'
+              end 
+from clientes
+
+select *, convert(varchar, DataSolicitacao) from Pedido ---> converte a formatação do dado 
+join, inner join, left join, group by 
+sum()
+select * from Clientes cli 
+    left join pedido ped 
+    on cli.codigo = ped.codigocliente
+
+select * from CLientes 
+where cliente.codigo not in(select codigocliente from pedido)
+
+count
+
+
+CHAVE PRIMÁRIA
+forma de identificar um registro
+tem que ser única para cada registro
+pode ser simples ou composta
+melhora a performance da busca ao indexar os registros 
+ex: CPF, coluna numérica
+
+CHAVE ESTRANGEIRA
+relaciona duas tabelas diferentes 
+é sempre uma cópia de uma chave primária, de mesmo tipo, mesma quantidade 
+ 
+ex: 
+alter table PedidoItem add constraing fk_pedido foreign key (CodigoPedido) references Pedido (Codigo)
+
+NORMALIZAÇÃO DE DADOS 
+3 Passos:
+1) não deve haver conjunto de colunas repetidos ou um conjunto de informações em uma única propriedade
+-Eliminar grupos repetidos em tabelas individuais.
+-Crie uma tabela separada para cada conjunto de dados relacionados.
+-Identifique cada conjunto de dados relacionados com uma chave primária.
+2) não ter informações duplicadas que dependam da chave primária 
+-Crie tabelas separadas para conjuntos de valores que se aplicam a vários registros.
+-Relacione essas tabelas com uma chave estrangeira.
+3)Eliminar campos que não dependam da chave primária 
+
+
+GERAL 
+atomicidade - garantir que todos os dados respeitam as regras antes de gravar em disco 
+NÃO banco relacional: estrutura de dados flexível 
+ERRADA: insert into tabela(campo1, campo2)values(1,a)
+SQL Server é um SGBD 
+group by: para indicar quais colunas serão agrupadas quando usamos funções de agregação 
+ERRADA: a chave estrangeira pode referenciar qualquer coluna de outra tabela 
+consistência para um banco de dados relacional: garantir que os dados estejam iguais em todas as instâncias de u banco de dados 
+where serve para filtrar linhas enquanto having serve para filtrar agregações 

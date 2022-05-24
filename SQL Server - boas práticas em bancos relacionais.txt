@@ -1,0 +1,36 @@
+ORM - Object Relationship Manager
+são componentes utilizados para abstrair as consultas dos bancos de dados 
+criação de classe ?
+
+CONSULTA SQL 
+trouxe padrão de desenvolvimento que se expandiu para todas as linguagens
+
+CRIAR ÍNDICE - agilizar consulta
+ex: create index idx01_produtos // ou idx_produtos_ean (índice, tabela em que está associado, campo em que está associado)
+        on produtos(ean)
+
+ean = código de barras
+pode não ser único e não estar clustered (presente em várias instâncias do banco)
+
+restringindo pelo nome
+select * 
+    from produtos
+    where descricao like '%produto%' // ou '%produto' // ou 'produto' // ou 'produto%'
+
+default - cria valor padrão 
+
+alter table estoque 
+    add constraint fk_estoque_produtos
+        foreign key (codigo_produto)
+        references produtos(codigo)
+
+GERAL 
+INSTRUTORES - os dois registros 
+not null - força uma coluna a não aceitar valores nulos 
+INCORRETO - só podemos indicar uma chave primária na criação da tabela. Caso contrário, precisamos excluir a tabela e criar uma nova e, assim, indicar a chave primária
+criar índice com a palavra reservada index 
+create table pessoa - cria uma tabela denominada pessoa 
+Microsoft Azure - as máquinas do Azure são cobradas por demanda, ou seja, pelo tempo de uso 
+tenha um "ca" em qualquer posição
+insert into - usado para inserir novos registros em uma tabela
+a FOREIGN KEY é um campo (ou coleção de campos) em uma tabela que se refere à PRIMARY KEY de outra tabela

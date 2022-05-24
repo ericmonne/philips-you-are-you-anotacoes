@@ -1,0 +1,99 @@
+JVM 
+Java Virtual Machina 
+máquina virtual responsável pela tradução dos bytecodes em código de máquina de cada sistema operacional
+ByteCodes são gerados pelo compilador Javac (Java Compiler)
+Características e Responsabilidades:
+-execução de pilhas
+-gerenciamento de memória
+-gerenciamento de threads 
+-otimização de código (compilação JIT - Just In Time)
+-garbage collector (GC) - responsável pela limpeza da memória desalocada durante a execução dos programas 
+
+Diferença do Java para outras linguagens compiladas: 
+Java é tanto compilado quanto interpretado 
+código fonte (.java) -> compilador Javac -> .class (bytecodes, linguagem de máquina) -> JVM do sistema operacional 
+
+JRE
+Java Runtime Enviroment 
+responsável por executar os programas em Java 
+
+JDK
+Java Development Kit
+utilitários que permitem o desenvolvimento de programas em Java 
+já possui a JVM para executar os programas
+
+3 tipos de plataformas Java
+1) Java SE
+Java Standard Edition
+contém as especificações do Java 
+pode ser implementado por diversas empresas 
+como Oracle JDK, OpenJDK, Azul Zulu, AdoptOpenJDK, Amazon Coretto, GraalVM CE, 
+2) Java EE 
+Java Enterprise Edition
+contém todas as espeficicações do JAVA SE e um número de programas úteis para execução em servidores 
+renomeado em 2019 para Jakarta EE
+3) Java ME 
+Java Micro Edition
+contém especificações para desenvolvimento de programas para dispositivos pequenos, como celulares e PDAs
+
+Comando para instalar em linux 
+sudo apt install curl 
+
+Comando para ver a versão java
+java -version
+
+RECURSOS JAVA 11
+-default methods 
+implementação default dentro e uma interface
+-lambdas
+usar função anônima em vez de implementar uma função dentro de uma classe
+-method references 
+usar a referência de um dado método dentro de uma classe
+deixar o código mais enxuto
+-streams 
+bastante usada em fluxo de dados e collections 
+permite métodos próprios
+-datas
+métodos para trabalhar com datas
+
+NOVIDADES JAVA 11 
+-manipulação de strings 
+método trim
+suporte ao unicode-10 (emoticons)
+-variáveis por inferência 
+-manipulação de arquivos 
+-novidades no Garbage Collector (GC)
+Z Garbage Collector 
+Epsilon Garbage Collector 
+-Http Client padronizado
+chamada síncrona e assíncrona
+
+IDE 
+ambiente de desenvolvimento integrado 
+combina diversas ferramentas essenciais para o desenvolvimento de software 
+como editor de código fonte, automatizador de compilação local, depurador, versionador de código etc 
+
+INTELLIJ 
+2 formas de instalação:
+1- via jetbrains toolbox app 
+2- stand alone 
+
+JAR 
+Java Archive 
+é um arquivo compactado que reúne todas as classes compiladas (bytecodes) e metadados necessários para execução de um programa
+Composição básica de um JAR:
+-classes compiladas (.class)
+-arquivo /META-INF/MANIFEST.MR 
+contém os metadados necessários para a execução do programa 
+
+GERAL 
+JAR: arquivo compactado que reúne as classes compiladas e metadados necessários para execução de um programa
+JVM: máquina virtual responsável pela interpretação dos ByteCodes oriundos do compilador Java (Javac)
+Method Reference: recurso utilizado com as funções lambdas e seu objetivo é diminuir a quantidade de código escrito, tornando-o mais legível 
+Epsilon Garbage Collector: é um Garbage Collector passivo que não faz a realocação de memória e é usado em cenários de testes
+Jar: classes compiladas + arquivo /META-INF/MANIFEST.MF 
+HttpClient do Java 11: é um client padronizado que define dois tipos de requisições: síncronas e assíncronas 
+API Streams: facilitar o desenvolvimento, reduzir o tamanho do código e facilitar e simplificar o paralelismo para um fluxo de dados, como listas, hashmaps etc 
+IDE: programa que contém diversas ferramentas essenciais para o desenvolvimento de software
+linguagem Java é compilada e interpretada
+IntelliJ Community pode ser instalada manualmente (atualizações manuais) ou via toolbox app (atualizações automáticas)

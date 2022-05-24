@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos - align-self</title>
+    <style>
+        .container{
+            max-width: 350px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            display: flex;
+            
+        }
+
+        .align-container{
+            align-items: center;
+        }
+
+        .item{
+            background-color: brown;
+            color:aliceblue;
+            font-size:24px;
+            text-align: center;
+            margin: 5px;
+        }
+        .center{
+            align-self: center;
+        }
+        .start{
+            align-self: flex-start;
+        }
+        .end{
+            align-self: flex-end;
+        }
+        .stretch{
+            align-self: stretch;
+        }
+        .baseline{
+            align-self: baseline;
+        }
+        .auto{
+            align-self: auto;
+        }
+        .direction{
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>ROW</h1>
+    <section class="container align-container">
+        <div class="item auto">AAA</div>
+        <div class="item auto">123</div>
+        <div class="item auto">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+        <div class="item auto">ITEM 4</div>
+    </section>
+   
+    <section class="container">
+        <div class="item center">AAA</div>
+        <div class="item start">123</div>
+        <div class="item stretch">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+        <div class="item end">ITEM 4</div>
+    </section>
+
+    <section class="container">
+        <div class="item center">AAA</div>
+        <div class="item start">AAAaaaaaa</div>
+        <div class="item end">AAAaaaaaaaaaaaaaaaaaaaaa</div>
+        <div class="item stretch">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+    </section>
+
+    <H1>COLUMN</H1>
+    <section class="container align-container direction">
+        <div class="item auto">AAA</div>
+        <div class="item auto">123</div>
+        <div class="item auto">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+        <div class="item auto">ITEM 4</div>
+    </section>
+   
+    <section class="container direction">
+        <div class="item center">AAA</div>
+        <div class="item start">123</div>
+        <div class="item stretch">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+        <div class="item end">ITEM 4</div>
+    </section>
+
+    <section class="container direction">
+        <div class="item center">AAA</div>
+        <div class="item start">AAAaaaaaa</div>
+        <div class="item end">AAAaaaaaaaaaaaaaaaaaaaaa</div>
+        <div class="item stretch">LOREM IPSUM BEM COMPRIDO MAS TAMBÉM NEM TANTO</div>
+    </section>
+</body>
+</html>

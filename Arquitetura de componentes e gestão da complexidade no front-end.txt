@@ -1,0 +1,139 @@
+COMPONENTE
+cada elemento com responsabilidade própria que forma um site 
+diz respeito à interface visual 
+relacionado àquilo que se entrega ao usuário
+ex:
+header
+carousel
+navbar
+
+ARQUITETURA DE COMPONENTES 
+baseia-se na construção de componentes independentes, substituíveis e modulares que auxiliem no gerenciamento da complecidade e encorajem a reutilização 
+benefícios:
+-escalabilidade
+-manutenção
+-performance
+
+SERVIÇOS 
+responsáveis por organizar e compartilhar lógica de negócios 
+reutilizáveis entre diferentes componentes de uma aplicação 
+mandatórios para uma arquitetura modular e reutilizável 
+o usuário não vê, mas fazem a aplicação funcionar
+
+INJEÇÃO DE DEPENDÊNCIA
+todo serviço é uma dependência que precisa ser instanciada dentro do componente para ser utilizada pelo mesmo 
+no Angular, o componente pede rpa aplicação as dependências de que precisa e então as injeta dentro de si 
+
+CICLO DE VIDA 
+todo componente possui seu ciclo de vida 
+lifecycle hooks
+começa assim que o Angular instancializa na aplicação 
+através dele, é possível executar diferentes lógicas nos vários estágios de um componente
+seu uso excessivo pode comprometer a performance da aplicação
+precisam ser implementados na classe para serem chamados
+ex:
+ngOnChanges: chamado quango existe uma entrada de dados no componente e toda vez que essa entrada muda 
+ngOnInit: quanto o componente é inicializado 
+ngDoCheck: toda vez que o componente detecta uma mudança
+ngAfterContentInit: quando o conteúdo do componente é inicializado
+ngAfterContentChecked: chamado uma vez após o ngAfterContentInit e toda vez depois do ngDoCheck
+ngAfterViewInit: quando as views de um componente são inicializadas
+ngAfterViewChecked: após a view do componente ser verificada, chamada uma vez após o ngAfterViewInit e toda vez depois do ngDoCheck
+ngOnDestroy: antes do componente ser destruído pela aplicação; usado para encerrar componentes que possam gerar gargalos na aplicação 
+
+CONSTRUCTOR 
+deve ser utilizado apenas para inicializar serviços injetados via DI(injeção de dependência)
+informa quais serviços deverão ser consumidos por aquele componente 
+
+NGONINIT 
+deve ser utilizado para todo tipo de lógica que o componente precisa executar após ter sido criado
+
+DATA BINDING 
+a forma como associamos informações que estão no componente para o template e vice-versa 
+ex:
+-String Interpolation: {{valor}}
+associa informação do componente para o template(HTML)
+-Property Binding: [propriedade]="valor"
+associa informação do componente para propriedades do template(HTML)
+-Event Binding: (evento)="handler"
+associa informação do template(HTML) para o componente
+-Two-Way Data Binding: [(ngModel)]="propriedade"
+associa informação entre ambos, mantendo atualizados componente e template(HTML)
+
+INPUT
+@Input()
+Pai -> Filho
+principal maneira de compartilhar dados do pai para filho 
+ex:
+@Input() earnedMoney: number;
+
+OUTPUT e EVENTEMITTER
+@Output()
+EventEmitter()
+principal maneira de compartilhar dados do filho para o pai
+ex:
+@Output() remainingMoney = new EventEmitter();
+
+COMPONENTES APRESENTACIONAIS 
+parecido com funções puras 
+se preocupam apenas com a interface do usuário 
+não ficam responsáveis por recuperar dados ou lidar com lógica de negócio
+não causam efeitos colaterais na aplicação 
+recebem dados via @Input e emitem eventos via @Output 
+
+COMPONENTES INTELIGENTES 
+parecidos com funções impuras (que causam efeitos colaterais na aplicação, cujo resultado não necessariamente é previsto)
+contém toda a lógica de negócio 
+são internamente compostos por componentes apresentacionais 
+ficam responsáveis por repassar os dados para os componentes apresentacionais apresentarem ao usuário final 
+
+DESIGN MODULAR E DESENVOLVIMENTO EM MÓDULOS 
+divisão da aplicação web em módulso de recursos que representam diferentes funcionalidades de negócios 
+é importante criar um módulo para cada funcionalidade criada no projeto
+
+Core Module: 
+define serviços singleton, componentes de instância única, configuração e exportação de quaisquer módulos de terceiros necessários no módulo principal (App Module)
+onde fica aquilo que deve ter uma única instância na aplicação inteira
+Shared Module:
+contém componentes/pipes/diretivas comuns e também exporta módulos do angular usados com frequência (CommonsModule)
+Feature Module: 
+organiza um conjunto de recursos da aplicação num módulo de funcionalidade
+
+Library:
+possui código que pode ser reutilizável entre diferentes aplicações 
+Angular Element: 
+recurso do Angular para criar web components, padrão da web para definir novos elementos HTML de uma maneira independente de estrutura e agnóstica de frameworks
+
+SMACSS
+arquitetura modular e escalável para CSS, dividida em 5 camadas:
+1)Base: estilização de seletores e pseudo-classes, além de resets 
+2)Layout: principais componentes, como cabecalho, rodapé etc 
+3)Module: componentes reutilizáveis como botões e ícones 
+4)State: todo elemento que será modificado ou terá alguma alteração em seu estado inicial 
+5)Theme: temas específicos para uma mesma aplicação 
+
+BEM CSS
+Block, Element, Modifier
+bloco, elemento e modificador 
+metodologia que segue esses conceitos para definir nomenclatura de classes CSS 
+ex:
+bloco: card 
+elemento: card_title, card_text 
+modificador: card_text--secondary
+
+OOCSS
+CSS orientado a objeto 
+metodologia que identifica o padrão visual que pode se repetir no projeto e o agrupa em classes, tornando-os reutilizáveis 
+
+GERAL 
+LifeCycle Hooks: são os estados (eventos) de um componente na sua aplicação 
+Injeção de Dependência: todo serviço é uma dependência que precisa ser instanciada dentro do componente para ser utilizada por ele mesmo 
+arquitetura front-end baseada em componentes: composta por um conjunto de componentes que forma uma página só
+@Input: maneira de compartilhar dados do componente pai para o filho
+componentes apresentacionais: responsáveis apenas por apresentar algo visual para o cliente, não se preocupam com a lógica de negócio
+componentes podem ser reutilizados e reaproveitados em vários lugares 
+OnDestroy: evento disparado sempre que um evento é encerrado/destruído na tela 
+componente: parte isolada do front-end, totalmente independente tanto na sua estilização quanto no comportamento 
+data binding: a forma como associamos informações que estão no componente para o template e vice-versa 
+Serviços: responsáveis por organizar e compartilhar lógica de negócios 
+vantagens de utilizar componentes: escalabilidade, manutenção e performance

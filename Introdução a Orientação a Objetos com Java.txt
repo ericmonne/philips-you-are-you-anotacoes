@@ -1,0 +1,72 @@
+ORIENTAÇÃO A OBJETOS 
+trazer uma representação do mundo real pra dentro do computador 
+Simula 67:
+-primeira linguagem OO
+-desenvolvida nos anos 60 por Ole-Johan Dahl e Kristen Nygarard 
+-possuía muitos dos conceitos das OO de hoje:
+-classes e objetos 
+-subclasses
+-métodos virtuais
+-frameworks
+-concorrência
+-gerenciamento de memória
+
+Mitos da OO: 
+- é possível e comum programas em linguagem com suporte a OO e que utilizam componentes de OO terem uma implementação completamente estruturada
+
+PROGRAMAÇÃO ESTRUTURADA
+computação surgiu de forma procedural 
+programava-se de cima para baixo, linha a linha 
+percebeu-se a necessidade de reaproveitar código: funções, divisões do códigos em espaços menores
+programação linear 
+astomadas de decisão são feitas de forma ordenada 
+por meio de verificações condicionais e interações
+utilizando recursos como variáveis e rotinas para o desenvolvimento dos programas
+limitação: a organização do código para programas complexos, dificulta manutenção
+ex: C, Pascal, Basic
+
+FUNÇÕES ESTÁTICAS UTILITÁRIAS 
+funções que se resumem a uma única ação 
+programação estruturada dentro da POO 
+evitar duplicidade de código 
+consegue se resolver por si mesma, sem dependências externas 
+parâmetros de entrada são simples e diretos 
+resultado de saída é simples e direto 
+ex: validação de CPF ou CNPJ 
+
+CONCEITOS BÁSICOS DE ORIENTAÇÃO A OBJETOS 
+
+1.CLASSE E OBJETO 
+representação de dados em objetos ou entidades para o processamento de outros objetos 
+
+2.ASSOCIAÇÃO DE CLASSES 
+quando utilizamos uma classe dentro de outra classe 
+
+3.HERANÇA 
+utilização de uma classe base, 
+fazendo com que uma nova classe tenha todos os atributos e funções da classe pai mais as suas próprias 
+
+4.ENCAPSULAMENTO 
+possibilidade de proteger alguns dados ou funcionalidades da classe 
+não permitindo que seus consumidores possam acessá-la 
+
+5.POLIMORFISMO 
+criar funções com o mesmo nome, 
+mas diferentes processamentos, implementações ou na mesma classe o mesmo nome e diferentes entradas 
+forma de modificar uma funcionalidade sem mudar o nome 
+
+LOMBOK 
+notação que atua em tempo de compilação, alterando o código fonte 
+a maioria das notações atua em tempo de execução 
+
+GERAL 
+Polimorfismo é a capacidade de referenciar objetos construídos por classes específicas como objetos de uma classe genérica, desde que essa classe genérica respeite a hierarquia em questão 
+Sobrecarga: caracterizada por métodos de mesmo nome, mas lista de parâmetros diferentes 
+associação de classes / inner classes: quando utilizamos uma classe dentro de outra classe 
+classes e objetos: antes de um objeto ser criado, devemos definir quais serão suas propriedades e métodos, através de uma classe. A partir dela, podemos construir objetos na memória do computador. Uma classe funciona como uma receita para criar objetos. Vários objetos podem ser criados a partir de uma única classe 
+abstração: habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Objetos são abstrações de entidades existentes no domínio em questão. A abstração é a maneira de interpretar um contexto de negócio quando desejamos transcrevê-lo como uma aplicação OO 
+classes são estruturas de dados através das quais objetos podem ser instanciados, essencialmente para a troca de mensagens com outros objetos 
+INCORRETO: acessar ou modificar as características de um objeto manipulando diretamente seus atributos é uma boa prática 
+F-V-V-F-F
+Encapsulamento: possibilidade de proteger alguns dados ou funcionalidades da classe, não permitindo que seus consumidores possam acessá-los 
+Herança 

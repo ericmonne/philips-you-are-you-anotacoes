@@ -1,0 +1,134 @@
+ANGULAR 
+a partir do 2: 
+framework foi reconstruído do zero, 
+perdeu a compatibilidade com o angular 1
+ficou mais moderno, mais aderente aos padrões da web
+padrão mais fácil de evoluir 
+principais benefícios do novo Angular: 
+1) mais aderente a padrões 
+2) trabalha com a ideia de classes
+3) qualquer propriedade do DOM pode receber um valor dinamicamente sem a necessidade de criar diretivas 
+
+SPA X Traditional Web Application 
+SPA: não muda de páginas, apenas altera os templates e carrega componentes
+
+NOVO PROJETO ANGULAR 
+ng new nomeDoProjeto --prefix=spa (pode ser outro)
+comando de prefixo não é obrigatório, mas diferencia componente de outros 
+
+WOULD YOU LIKE DO ADD ANGULAR ROUTING?
+ao responder YES, ele cria um arquivo de rota em nossa aplicação 
+
+WHICH STYLESHEET FORMAT WOULD YOU LIKE TO USE?
+usar setinha, em geral escolher CSS como folha de estilo 
+
+ng serve -o 
+comando para iniciar o servidor e abrir a aplicação
+-o = -open 
+
+NODE_MODULES
+diretório que contém os pacotes e as dependências que o angular npm baixou e instalou na aplicação
+
+SRC 
+pasta com estrutura inicial de trabalho
+
+ASSETS
+pasta que contém os arquivos de estilo, imagens etc 
+
+ENVIROMENTS
+diretório para definir quais ambientes e variáveis serão lançadas no projeto (?)
+
+PACKAGE.JSON
+pasta/arquivo com as dependências do projeto 
+nome do componente e a versão 
+
+ANGULAR MATERIAL 
+site que mostra componentes interessantes/úteis para a aplicação 
+todo componente utilizado exige um import para "declarar" o componente para a aplicação
+sobre o import, ver aba API 
+componente deve ser importado em app.module 
+
+ctrl+c x2 no terminal encerra o servidor 
+
+ng add @angular/material - adiciona um tema para o angular material 
+
+tag selector representa o componente
+
+CRIANDO COMPONENTE 
+ng g c nomeComponente 
+g = generate 
+c = component
+assim, o componente já é importado em app.module automaticamente 
+
+CTRL+K+S - visualizar atalhos do vscode 
+
+DEFININDO O MÓDULO COMO O INICIAL
+no arquivo app-routing.module.ts, editar a rota para que abra como default a página HTML do componente escolhido com inicial 
+ex:
+const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent
+    }
+];
+
+DATA BINDING 
+forma de associar informações que estão no componente para o template e vice-versa 
+-Interpolação: {{valor}}
+recurso para embedar expressões dentro de uma área delimitada por {{}}
+nela, podemos trazer variáveis e métodos do TS, realizar cálculos matemáticos e operações lógicas 
+associa informação do componente para o template HTML 
+-Property Binding: [propriedade]="valor"
+associa informação do componente para o template(HTML)
+-Event Binding: (evento)="handler"
+associa informação do template(HTML) para o componente
+-Two-Way Data Binding:[(ngModel)]="propriedade"
+associa informação entre ambos, ou seja, mantém componente e template(HTML) atualizados
+
+DIRETIVAS 
+são marcadores em um elemento DOM (como um atributo)
+que informam ao Angular para anexar um comportamento especificado a um elemento existente 
+existem muitas diretivas prontas que podemos usar
+também podemos criar nossas próprias diretivas 
+
+ngIf: 
+adicionada a um elemento na marcação, geralmente para um elemento de container, como um div 
+
+ngFor:
+processar cada item de um objeto iterável, gerando uma marcação para cada um
+é conhecida como estrutural porque pode alterar o layout do DOM, adicionando e removendo elementos DOM de visualização 
+
+EVENT EMITTER 
+
+Input Property - @Input()
+utilizado para receber dados de um componente pai 
+
+Output Property - @Output()
+utilizado para enviar dados de um componente filho para um componente pai 
+
+LIFECYCLE HOOKS 
+cada componente no Angular possui um conjunto de Eventos de Ciclo de Vida 
+ocorrem quando o componente é criado, renderizado, tem o valor de suas propriedades alteradas ou é destruído 
+quando um desses eventos é chamado, o Angular invoca uma série de métodos que são executados imediatamente 
+ex: site de compras que responde a cada mudança feita pelo usuário em seu carrinho de compras 
+
+DESAFIO 
+1) app angular no github 
+2) no mínimo 3 componentes interagindo na mesma página (nao esqueça das rotas)
+3) no mínimo 4 componentes do angular material incorporados na aplicação 
+4) criar em uma das páginas uma interação através da interpolação e/ou utilizando property binding 
+5) explicar o que tá sendo feito 
+6) vídeo demonstrativo da aplicação no youtube 
+
+GERAL 
+package.json: contém todas as dependências da aplicação. À medida que se instala uma nova dependência, ela apareceá neste arquivo 
+two-way data binding: [(ngModel)]="propriedade" associa informação entre ambos, ou seja, mantém ambos atualizados (componente e template HTML)
+tag <router-outlet></router-outlet> se encontra no arquivo app.component.html 
+SPA: Single Page Applications, são aplicações web que consistem em soluções com uma única página, cujo objetivo é fornecer ao usuário uma experiência similar à de um aplicativo desktop 
+Angular: plataforma e framework para construção de aplicações web usando HTML, CSS e, principalmente, JavaScript, criada pelos desenvolvedores da Google 
+AngularJS foi a primeira versão do Angular, ondeo  JS é a linguagem principal. O Angular possui um CLI para criação de novos projetos, componentes e serviços, além de suportar TS nativamente 
+Bootstrap: framework CSS que organiza e gerencia o layout de um site 
+Angular Material: é composto por diversos componentes, bibliotecas CSS e outros elementos, além de fazer parte do gerenciador de pacotes do Node, o NPM 
+ng serve -o: comando para iniciar servidor no Angular 
+diretivas: são marcadores em um elemento DOM(como um atributo) que informam ao Angular para anexar um comportamento especificado a um elemento existente
+

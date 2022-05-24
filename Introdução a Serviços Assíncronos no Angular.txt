@@ -1,0 +1,37 @@
+SERVIÇOS ASSÍNCRONOS 
+
+HTTP CLIENT 
+usado para fazer a comunicação entre cliente e servidor usando o protocolo HTTP 
+
+BOOTSTRAP
+npm i bootstrap - instala bootstrap na aplicação angular 
+adicionar em angular.json, styles: "node_modules/bootstrap/dist/css/bootstrap.min.css"
+adicionar em angular.json, scripts: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
+SPA - página não recarega do zero quando muda de uma rota pra outra, apenas muda o conteúdo do meio
+router-outlet é uma diretiva que realiza essa troca de conteúdo 
+
+ng g m -> gera uma model 
+ng g interface -> gera interface
+ng g service -> gera service
+
+CRUD
+Create
+Read
+Update
+Delete
+
+paramMap: como se fosse um observable onde ficam os parâmetros das rotas 
+
+
+GERAL
+rotas: são utilizadas para definir uma ação que será executada quando determinada url for acessada 
+função Observable: fornece suporte para a passagem de mensagens entre partes do aplicativo. Tem relação com o padrão de projeto Observer 
+CRUD: Create Read Update Delete 
+Sheet Best: transformar uma planilha do Google Sheet em uma Rest API 
+HttpClient: ferramente utilizada para fazer a comunicação entre cliente e servidor usando o protocolo HTTP 
+serviços assíncronos: não existe sincronismo entre as requisições. Assim, podemos enviar diversas requisições em paralelo, onde cada resposta retorna quando estiver pronta
+HttpClient em comunicação assíncrona: diferente de outros frameworks, não é necessário utilizar bibliotecas externas 
+função Callback: só é executada após o processamento de outra função 
+HttpClient: realiza a comunicação entre cliente e servidor 
+função Activated Route: nos dá acesso à rota ativa no momento, seus parâmetros e demais valores 

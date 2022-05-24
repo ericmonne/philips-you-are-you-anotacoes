@@ -1,0 +1,42 @@
+DIRETIVAS 
+fornecem meios para que possamos manipular o DOM ou estender as funcionalidades do elemento HTML 
+atualizar e trazer funcionalidades para a manipulação do DOM
+há 3 tipos de diretivas (por enquanto, foco em dois)
+
+1.Diretivas de Atributos
+alteram a aparência ou o comportamento de um elemento, componente ou outra diretiva,
+ex: NgClass e NgStyle 
+
+
+2.Diretivas Estruturais 
+modificam o layout adicionando ou removendo elementos do DOM,
+ex: ngIf, ngSwitch e ngFor 
+muito utilizadas 
+
+3.Componentes 
+
+DIRETIVAS CUSTOMIZADAS 
+highliter
+dropdown
+etc
+
+todos os componentes do Angular são divididos em:
+Template - html 
+Estilo - css 
+Lógica - typescript
+
+
+* antes do *ngIf insere um template automaticamente 
+
+
+GERAL 
+ngClass: adiciona e remove classes CSS em um elemento HTML de acordo com determinada regra 
+diretiva estrutural: *ngIf 
+diretivas: meios para que possamos manipular o DOM ou estender as funcionalidades do elemento
+tipos principais: de atributos e estruturais 
+*ngFor: diretiva para processar cada item de um objeto iterável, gerando uma marcação para cada um. Ela é conhecida como uma diretiva estrutural porque pode alterar o layout do DOM adicionando e removendo elementos
+diretivas customizadas: criadas pelo próprio desenvolvedor para alterar um atributo ou estrutura 
+ngStyle: diretiva de atributo que atualiza estilos para o elemento HTML que a contém 
+*ngSwitch: diretiva que exibe um elemento de um possível conjunto de elementos com base em alguma condição. Ela usa as diretivas ngSwitch e ngSwitchDefault 
+*ngIf: diretiva estrutural que possui uma condiçao booleana que, quando verdadeira, o Angular renderiza o elemento e quando falsa não
+diretiva de atributo: ngClass 

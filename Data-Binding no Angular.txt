@@ -1,0 +1,43 @@
+DATA-BINDING 
+forma de fazer transporte de dados de um lado para o outro 
+da view(DOM) p/lógica (componente), ao contrário ou bidirecional
+
+do componente para o DOM: 
+- Interpolation: {{pageTitle}}
+recomendada para retorno direto
+- Property Binding: <img [src]='game.imageUrl'>
+recomendada para quando se quer trabalhar com uma propriedade
+
+do DOM para o componente:
+- Event Binding: <button (click)='toggleImage()'>
+
+ambos:
+- Two-Way Data Binding: <input [(ngModel)]='listFilter'/>
+
+Class Binding 
+adicionar classe ou trocar nome das classes de forma dinâmica 
+
+Style Binding 
+adicionar ou trocar estilo de forma dinâmica
+
+CICLO DE VIDA 
+métodos e funções chamados em determinados lugares
+lembrar sempre de implementar a interface dos ganchos em uso
+
+0-constructor
+1-ngOnChanges - chamado em caso de input -> chamado uma vez na criação do componente e sempre que houver alteração em uma de suas propriedades de entrada
+2-ngOnInit - assim que o componente é renderizado/inicia -> uma única vez quando o componente é inicializado 
+3-ngDoCheck - a cada ciclo de detecção de alterações (use para alterações que o Angular NÃO detecta) -> pouco utilizado
+3a-ngAfterContentInit - depois que o conteúdo externo é inserido no componente. Por exemplo, vindo do <ng-content>
+3b-ngAfterContentChecked - após a verificação do conteúdo externo
+3c-ngAfterViewInit - logo após o conteúdo do próprio componente e de seus filhos ser inicializado
+3d-ngAfterViewChecked - cada vez que o conteúdo é verificado pelo mecaniso de detecção de alterações do Angular 
+4-ngOnDestroy - antes do Angular destruir o componente
+
+3a a 3d são chamados em casos de alteração
+
+
+GERAL 
+property binding - [propriedade]="valor" - associa informação do componente para o template(HTML)
+um padrão comum no Angular é o compartilhamento de dados entre um componente pai e um ou mais componentes filhos. Para implementar esse padrão, usamos os decorators @Input() e @Output()
+Interpolação (II) - Property Binding (IV) - Event Binding (III) - Two-Way Data Binding(I)

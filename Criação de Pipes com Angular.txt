@@ -1,0 +1,44 @@
+PIPES
+funções simples usadas em templates para aceitar um valor de entrada e retornar um valor transformado 
+função do HTML/view que transforma um valor recebido 
+
+PIPES NATIVOS AO ANGULAR
+-DatePipe
+-AsyncPipe
+-CurrencyPipe
+-DecimalPipe
+-I18nPluralPipe
+-I18nSelectPipe
+-JsonPipe - exibe informações de um objeto em formato json 
+-KeyValuePipe
+-LowerCasePipe
+-PercentPipe
+-SlicePipe - retorna a cópia de selecionados de uma matriz ou substring pra um intervalo informado para ele ex: slice:1:4 (inclui 1, exclui 4 em diante)
+-TitleCasePipe
+-UpperCasePipe
+
+PIPES PUROS
+funções não têm efeitos colaterais
+só executa quando tem algum tipo de alteração (e olhe lá)
+muda de acordo com alguma alteração direta no valor de entrada
+pure: true / padrão
+
+PIPES IMPUROS
+executam pra cada detecção de alteração 
+pure: false
+
+CRIANDO PIPE 
+ng g pipe nomePipe
+
+GERAL 
+CurrencyPipe - transforma um valor numérico ou string em um formato monetário (dólar por padrão)
+parâmetros de DatePipe - format, timezone e locale 
+BrazilianDecimalPipe - não é um pipe nativo 
+Pipes Nativos: DatePipe, AsyncPipe, CurrencyPipe e DecimalPipe
+parâmetros DecimalPipe - digitsInfo e locale 
+parâmetro local do DecimalPipe para Brasil: 'pt-BR'
+para usar Pipe: utiliza o sinal Pipe '|', coloca-se espaço e depois escreve-se o pipe nativo que se quer utilizar
+parâmetros CurrencyPipe - currencyCode, display, digitsInfo, locale
+Pipes - funções simples usadas como expressões nos templates para aceitar um valor de entrada e retornar um valor transformado
+JsonPipe - transforma objetos/arrays em JSON, a notação padrão de objetos JavaScript 
+
